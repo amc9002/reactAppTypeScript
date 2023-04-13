@@ -1,3 +1,7 @@
-.wallpapers {
+div {
+    color: white;
+}
 
+.wallpapers img {
+    width: 300px;
 }
