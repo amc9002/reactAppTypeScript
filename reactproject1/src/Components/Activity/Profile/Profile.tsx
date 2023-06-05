@@ -5,10 +5,10 @@ const Profile = () => {
     return (
         <div>
             <div className={s.wallpapers}>
-                <img src="https://www.gettyimages.pt/gi-resources/images/Homepage/Hero/PT/PT_hero_42_153645159.jpg" alt=""></img>
+                <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg" alt=""></img>
             </div>
             <div>
-                <img src="https://www.gettyimages.pt/gi-resources/images/Homepage/Hero/PT/PT_hero_42_153645159.jpg" alt=""></img>
+                
                 ava + descr
             </div>
         </div>
