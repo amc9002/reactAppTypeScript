@@ -5,7 +5,8 @@ import Message from './Message/Message';
 import { addMessageActionCreator, updateMessageTextActionCreator } from '../../Redux/message-reducer';
 
 const Dialogs = (props: any): JSX.Element => {
-    const getClassName = ( isActive: any, isPending: any ) => isPending ? styles.pending : isActive ? styles.active : "";
+    const getClassName = (props: { isActive: any, isPending: any }) =>
+        props.isPending ? styles.pending : props.isActive ? styles.active : "";
 
     let dialogsToJsx: Array<JSX.Element> = props.dialogsData.dialogs.map(
         (d: { id: number, name: string, ava: string }) =>
