@@ -1,0 +1,11 @@
+.postsBlock {
+    padding-left: 20px;
+}
+
+.active {
+    color: blue;
+}
+
+.posts {
+    margin-top: 10px;
+}
