@@ -1,22 +1,33 @@
 import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
-import { addPostActionCreator, updatePostTextActionCreator } from '../../../Redux/profile-reducer'
 
+type PostType = {
+    id: number
+    msg: string
+    likes: number
+}
 
+type MyPostsType = {
+    posts: Array<PostType>
+    ava: string
+    currentPost: string
+    updateNewPostText: Function
+    addPost: Function
+}
 
-const MyPosts = (props: any): JSX.Element => {
-    let ava = props.profilePage.pictureLinks.avaLink;
-    let postsToJsx: Array<JSX.Element> = props.profilePage.posts.map(
-        (p: { id: number, msg: string, likes: number, ava: string | null }) =>
-            <Post key={p.id} message={p.msg} count={p.likes} ava={ava} />);
+const MyPosts = (props: MyPostsType): JSX.Element => {
+    let ava: string = props.ava;
+    let postsToJsx: Array<JSX.Element> = props.posts.map(
+        (p: PostType) => <Post key={p.id} message={p.msg} count={p.likes} ava={ava} />);
 
-    let addNewPost = (): void => {
-        props.dispatch(addPostActionCreator());
+    const onAddPost = (): void => {
+        props.addPost();
     }
 
-    let onPostChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
-        props.dispatch(updatePostTextActionCreator(e.target.value));
+    const onPostChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+        let text: string = e.target.value;
+        props.updateNewPostText(text);
     }
 
     return (
@@ -24,10 +35,10 @@ const MyPosts = (props: any): JSX.Element => {
             <h3>My Posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} value={props.profilePage.currentPost} />
+                    <textarea onChange={onPostChange} value={props.currentPost} />
                 </div>
                 <div>
-                    <button onClick={addNewPost}>Add post</button>
+                    <button onClick={onAddPost}>Add post</button>
                 </div>
             </div>
             <div className={ styles.posts }>

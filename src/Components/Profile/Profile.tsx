@@ -1,15 +1,13 @@
 import React from 'react';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MyPosts from './MyPosts/MyPosts';
+/*import MyPosts from './MyPosts/MyPosts';*/
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 const Profile = (props: any): JSX.Element => {
     return (
         <div>
-            <ProfileInfo profilePic={props.profilePage.pictureLinks.profilePicLink} />
-            <MyPosts
-                profilePage={props.profilePage}
-                currentPost={props.profilePage.currentPost}
-                dispatch={props.dispatch} />
+            <ProfileInfo profilePic={props.store.getState().profilePage.pictureLinks.profilePicLink} />
+            <MyPostsContainer store={props.store} />
         </div >
     );
 }

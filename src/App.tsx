@@ -1,4 +1,3 @@
-import React, { JSXElementConstructor } from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
@@ -8,24 +7,18 @@ import News from './Components/News/News';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-//import { JsxElement } from 'typescript';
-
-
+import DialogsContainer from './Components/Dialogs/DialogsContainer';
 
 const App = (props: any): JSX.Element => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <Header picLink={props.state.header} />
-                <Navbar menu={props.state.sidebar} />
+                <Header picLink={props.store.getState().header} />
+                <Navbar menu={props.store.getState().sidebar} />
                 <div className='app-wrapper-content'>
                     <Routes>
-                        <Route path='/profile' element={<Profile
-                            profilePage={props.state.profilePage}
-                            dispatch={props.dispatch} />} />
-                        <Route path='/dialogs/*' element={<Dialogs
-                            dialogsData={props.state.dialogsPage}
-                            dispatch={props.dispatch} />} />
+                        <Route path='/profile' element={<Profile store={props.store} />} />
+                        <Route path='/dialogs/*' element={<DialogsContainer store={props.store} />} />
                         <Route path='/news' element={<News />} />
                         <Route path='/music' element={<Music />} />
                         <Route path='/settings' element={<Settings />} />
