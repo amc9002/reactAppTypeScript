@@ -1,22 +1,29 @@
 import { addPostActionCreator, updatePostTextActionCreator } from '../../../Redux/profile-reducer'
+import StoreContext from '../../../storeContext';
 import MyPosts from './MyPosts';
 
-const MyPostsContainer = (props: any): JSX.Element => {
+const MyPostsContainer = (): JSX.Element => {
+    return (
+        <StoreContext.Consumer>
+            { (store: any): any => {
+                let state: any = store.getState();
+                let onAddNewPost = (): void => {
+                    store.dispatch(addPostActionCreator());
+                }
 
-    let onAddNewPost = (): void => {
-        props.store.dispatch(addPostActionCreator());
-    }
-
-    let onPostChange = (text: string): void => {
-        props.store.dispatch(updatePostTextActionCreator(text));
-    }
-
-    return <MyPosts
-        ava={props.store.getState().profilePage.pictureLinks.avaLink}
-        posts={props.store.getState().profilePage.posts}
-        currentPost={props.store.getState().profilePage.currentPost }
-        updateNewPostText={onPostChange}
-        addPost={onAddNewPost} />;
+                let onPostChange = (text: string): void => {
+                    store.dispatch(updatePostTextActionCreator(text));
+                }
+                return <MyPosts
+                    ava={state.profilePage.pictureLinks.avaLink}
+                    posts={state.profilePage.posts}
+                    currentPost={state.profilePage.currentPost}
+                    updateNewPostText={onPostChange}
+                    addPost={onAddNewPost} />
+            }
+        }
+        </StoreContext.Consumer>
+    )
 }
 
 export default MyPostsContainer;
