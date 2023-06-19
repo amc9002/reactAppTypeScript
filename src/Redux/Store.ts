@@ -51,10 +51,10 @@ type StateType = {
 
 type StoreType = {
     _state: StateType
-    _callSubscriber: any
-    getState: any
-    subscribe: any
-    dispatch: any
+    _callSubscriber: Function
+    getState: Function
+    subscribe: Function
+    dispatch: Function
 }
 
 let store: StoreType = {

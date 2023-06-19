@@ -1,13 +1,19 @@
-import React from 'react';
 import styles from './Navbar.module.css';
 import { NavLink } from "react-router-dom";
 
+type MenuType = {
+    id: number
+    navLink: string
+    link: string
+}
+
+
 const Navbar = (props: any): JSX.Element => {
-    const getClassName = (props: { isActive: boolean, isPending: boolean }) =>
+    const getClassName: Function = (props: { isActive: boolean, isPending: boolean }) =>
         props.isPending ? styles.pending : props.isActive ? styles.active : "";
-    let menuToJsx: Array<JSX.Element> = props.menu.map((p: { navLink: string, id: number, link: string }) =>
+    let menuToJsx: Array<JSX.Element> = props.menu.map((p: MenuType) =>
         <div className={styles.item}>
-            <NavLink to={p.navLink} key={p.id} className={getClassName}>
+            <NavLink to={p.navLink} key={p.id} className={getClassName as unknown as string}>
                 {p.link}
             </NavLink>
         </div>);

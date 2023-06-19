@@ -23,7 +23,7 @@ type DialogsPropsType = {
 }
 
 const Dialogs = (props: DialogsPropsType): JSX.Element => {
-    const getClassName: any = (props: { isActive: any, isPending: any }) =>
+    const getClassName: Function = (props: { isActive: boolean, isPending: boolean }) =>
         props.isPending ? styles.pending : props.isActive ? styles.active : "";
 
     let dialogsToJsx: Array<JSX.Element> = props.dialogs.map(
