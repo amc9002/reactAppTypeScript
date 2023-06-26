@@ -16,8 +16,8 @@ type MyPostsType = {
     addPost: Function
 }
 
-const MyPosts = (props: MyPostsType): JSX.Element => {
-    let ava: string = props.ava;
+const MyPosts = (props: any): JSX.Element => {
+    let ava: string = props.pictureLinks.avaLink;
     let postsToJsx: Array<JSX.Element> = props.posts.map(
         (p: PostType) => <Post key={p.id} message={p.msg} count={p.likes} ava={ava} />);
 
