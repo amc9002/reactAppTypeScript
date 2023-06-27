@@ -17,8 +17,8 @@ type MyPostsType = {
 }
 
 const MyPosts = (props: any): JSX.Element => {
-    let ava: string = props.pictureLinks.avaLink;
-    let postsToJsx: Array<JSX.Element> = props.posts.map(
+    let ava: string = props.profilePage.pictureLinks.avaLink;
+    let postsToJsx: Array<JSX.Element> = props.profilePage.posts.map(
         (p: PostType) => <Post key={p.id} message={p.msg} count={p.likes} ava={ava} />);
 
     const onAddPost = (): void => {
@@ -35,7 +35,7 @@ const MyPosts = (props: any): JSX.Element => {
             <h3>My Posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} value={props.currentPost} />
+                    <textarea onChange={onPostChange} value={props.profilePage.currentPost} />
                 </div>
                 <div>
                     <button onClick={onAddPost}>Add post</button>

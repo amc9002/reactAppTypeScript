@@ -43,7 +43,7 @@ type DialogsPageType = {
     }
 
 type StateType = {
-    headerPicLink: string
+    header: string
     sidebar: Array<SidebarType>
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
@@ -59,7 +59,7 @@ type StoreType = {
 
 let store: StoreType = {
     _state: {
-        headerPicLink: 'https://img.freepik.com/free-vector/golden-bird-logo-design_1195-336.jpg?w=2000',
+        header: 'https://img.freepik.com/free-vector/golden-bird-logo-design_1195-336.jpg?w=2000',
 
         sidebar: [
             { id: 0, link: "Profile", navLink: "/profile" },

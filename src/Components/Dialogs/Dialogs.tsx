@@ -26,11 +26,11 @@ const Dialogs = (props: any): JSX.Element => {
     const getClassName: Function = (props: { isActive: boolean, isPending: boolean }) =>
         props.isPending ? styles.pending : props.isActive ? styles.active : "";
 
-    let dialogsToJsx: Array<JSX.Element> = props.state.dialogs.map(
+    let dialogsToJsx: Array<JSX.Element> = props.dialogsPage.dialogs.map(
         (d: DialogType) =>
         <Dialog key={d.id} id={d.id} name={d.name} ava={d.ava} class_={getClassName} />);
 
-    let messagesToJsx: Array<JSX.Element> = props.state.messages.map(
+    let messagesToJsx: Array<JSX.Element> = props.dialogsPage.messages.map(
         (m: {id: number, msg: string}) => <Message key={m.id} msg={m.msg} />)
 
     const onNewMessage = (): void => {
@@ -52,7 +52,7 @@ const Dialogs = (props: any): JSX.Element => {
                     {messagesToJsx}
                 </div>
                 <div>
-                    <textarea onChange={onMessageChange} value={props.state.currentMessage} />
+                    <textarea onChange={onMessageChange} value={props.dialogsPage.currentMessage} />
                 </div>              
                 <div>
                     <button onClick={onNewMessage}>Message</button>

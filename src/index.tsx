@@ -14,7 +14,7 @@ const rerenderEntireTree = (): void => {
     root.render(
         <React.StrictMode>
             <Provider store={store}>
-                <App store={store} />
+                <App />
             </Provider>
         </React.StrictMode>
     );

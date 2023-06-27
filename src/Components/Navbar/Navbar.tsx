@@ -11,7 +11,7 @@ type MenuType = {
 const Navbar = (props: any): JSX.Element => {
     const getClassName: Function = (props: { isActive: boolean, isPending: boolean }) =>
         props.isPending ? styles.pending : props.isActive ? styles.active : "";
-    let menuToJsx: Array<JSX.Element> = props.menu.map((p: MenuType) =>
+    let menuToJsx: Array<JSX.Element> = props.sidebar.map((p: MenuType) =>
         <div className={styles.item}>
             <NavLink to={p.navLink} key={p.id} className={getClassName as unknown as string}>
                 {p.link}
