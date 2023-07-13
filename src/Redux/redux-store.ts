@@ -3,15 +3,17 @@ import headerPicReducer from './header-pic-reducer';
 import profileReducer from './profile-reducer';
 import messageReducer from './message-reducer';
 import sidebarReducer from './sidebar-reducer';
+import usersReducer from './users-reducer';
 
-let reducers = combineReducers({
+const reducers = combineReducers({
     header: headerPicReducer,
     profilePage: profileReducer,
     dialogsPage: messageReducer,
-    sidebar: sidebarReducer
+    sidebar: sidebarReducer,
+    usersPage: usersReducer
 });
 
-let store = createStore(reducers);
+const store = createStore(reducers);
 
 export type RootStateType = ReturnType<typeof store.getState>
 

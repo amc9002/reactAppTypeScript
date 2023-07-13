@@ -2,6 +2,25 @@ import Dialogs from './Dialogs';
 import { addMessageActionCreator, updateMessageTextActionCreator } from '../../Redux/message-reducer';
 import { connect } from 'react-redux';
 
+type DialogType = {
+    id: number
+    name: string
+    ava: string | null
+}
+
+type MessageType = {
+    id: number
+    msg: string
+}
+
+type DialogsStateType = {
+    dialogs: Array<DialogType>
+    currentMessage: string
+    messages: Array<MessageType>
+}
+
+type MapStateToPropsType = { dialogsPage: DialogsStateType }
+
 const mapStateToProps: any = (state: any) => {
     return {
         dialogsPage: state.dialogsPage

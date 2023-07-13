@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Header from './Header';
 
-const mapStateToProps: any = (state: any) => {
+const mapStateToProps = (state: any): any  => {
     return {
         header: state.header
     }

@@ -1,5 +1,4 @@
 import './App.css';
-import Header from './Components/Header/Header';
 import News from './Components/News/News';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
@@ -8,6 +7,7 @@ import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import MyPostsContainer from './Components/Profile/MyPosts/MyPostsContainer';
 import HeaderContainer from './Components/Header/HeaderContainer';
 import NavbarContainer from './Components/Navbar/NavbarContainer';
+import UsersContainer from './Components/Users/UsersContainer';
 
 const App = (): JSX.Element => {
     return (
@@ -22,6 +22,7 @@ const App = (): JSX.Element => {
                         <Route path='/news' element={<News />} />
                         <Route path='/music' element={<Music />} />
                         <Route path='/settings' element={<Settings />} />
+                        <Route path='/users' element={<UsersContainer />} />
                     </Routes>
                 </div>
             </div>
