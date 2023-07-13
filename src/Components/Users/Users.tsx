@@ -13,8 +13,8 @@ const Users = (props: any): JSX.Element => {
                             </div>
                             <div>
                                 {u.followed
-                                    ? <button onClick={() => { props.followUser(u.id) }}> Follow </button>
-                                    : <button onClick={() => { props.unFollowUser(u.id) }}>Unfollow</button>}
+                                    ? <button onClick={() => { props.unFollowUser(u.id) }}>Unfollow</button>
+                                    : <button onClick={() => { props.followUser(u.id) }}> Follow </button>}
                             </div>
                         </span>
                         <span>
