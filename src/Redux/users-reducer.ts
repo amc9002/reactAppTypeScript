@@ -22,61 +22,62 @@ export type StateType = {
 
 let initialState: StateType = {
     users: [
-        {
-            id: 0,
-            name: 'Mike',
-            status: "Life is nice!",
-            location: {
-                city: "Boston",
-                country: "United States",
-            },
-            ava: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/ea7a3c32163929.567197ac70bda.png",
-            followed: true
-        },
-        {
-            id: 1,
-            name: 'Andris',
-            status: "Not sure (",
-            location: {
-                city: "Miensk",
-                country: "Bielarus",
-            },
-            ava: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHCZuslFbn42wwA9qw6ywBERhtpr_yOFy3Cw&usqp=CAU",
-            followed: true
-        },
-        {
-            id: 2,
-            name: 'Kandrat',
-            status: "I want to sail",
-            location: {
-                city: "Kaczyna",
-                country: "Bielarus",
-            },
-            ava: "https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png",
-            followed: true
-        },
-        {
-            id: 3,
-            name: 'Anela',
-            status: "I'm tired of you all",
-            location: {
-                city: "Tatarszczyna",
-                country: "Bielarus",
-            },
-            ava: "https://alitech.com.ng/wp-content/uploads/2020/06/IMG_20200603_114713-e1592183490881.jpg",
-            followed: true
-        },
-        {
-            id: 4,
-            name: 'Jakub',
-            status: "I just want to play games",
-            location: {
-                city: "Kaczyna",
-                country: "Bielarus",
-            },
-            ava: "https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png",
-            followed: true
-        },
+        //fake users
+        //{
+        //    id: 0,
+        //    name: 'Mike',
+        //    status: "Life is nice!",
+        //    location: {
+        //        city: "Boston",
+        //        country: "United States",
+        //    },
+        //    ava: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/ea7a3c32163929.567197ac70bda.png",
+        //    followed: true
+        //},
+        //{
+        //    id: 1,
+        //    name: 'Andris',
+        //    status: "Not sure (",
+        //    location: {
+        //        city: "Miensk",
+        //        country: "Bielarus",
+        //    },
+        //    ava: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHCZuslFbn42wwA9qw6ywBERhtpr_yOFy3Cw&usqp=CAU",
+        //    followed: true
+        //},
+        //{
+        //    id: 2,
+        //    name: 'Kandrat',
+        //    status: "I want to sail",
+        //    location: {
+        //        city: "Kaczyna",
+        //        country: "Bielarus",
+        //    },
+        //    ava: "https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png",
+        //    followed: true
+        //},
+        //{
+        //    id: 3,
+        //    name: 'Anela',
+        //    status: "I'm tired of you all",
+        //    location: {
+        //        city: "Tatarszczyna",
+        //        country: "Bielarus",
+        //    },
+        //    ava: "https://alitech.com.ng/wp-content/uploads/2020/06/IMG_20200603_114713-e1592183490881.jpg",
+        //    followed: true
+        //},
+        //{
+        //    id: 4,
+        //    name: 'Jakub',
+        //    status: "I just want to play games",
+        //    location: {
+        //        city: "Kaczyna",
+        //        country: "Bielarus",
+        //    },
+        //    ava: "https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png",
+        //    followed: true
+        //},
     ],
 }
 
