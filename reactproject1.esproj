@@ -15,6 +15,7 @@
     <None Remove="src\Components\Navbar\NavbarContainer.tsx~RF37c9dc.TMP" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="src\Assets\Images\" />
     <Folder Include="src\Components\Users\" />
   </ItemGroup>
 </Project>

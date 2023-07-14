@@ -2,17 +2,11 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS'
 
-type LocationType = {
-    city: string
-    country: string
-}
-
 type UserType = {
     id: number,
     name: string,
     status: string
-    location: LocationType
-    ava: string
+    photos: { small: string, large: string }
     followed: boolean
 }
 

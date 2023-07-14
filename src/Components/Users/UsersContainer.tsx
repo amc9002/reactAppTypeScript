@@ -2,18 +2,11 @@ import { connect } from "react-redux";
 import { FollowAC, SetUsersAC, UnFollowAC } from "../../Redux/users-reducer";
 import Users from "./Users";
 
-
-type LocationType = {
-    city: string
-    country: string
-}
-
 export type UserType = {
     id: number,
     name: string,
     status: string
-    location: LocationType
-    ava: string
+    photos: { small: string, large: string }
     followed: boolean
 }
 

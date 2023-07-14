@@ -1,14 +1,14 @@
 import { UserType } from "./UsersContainer";
 import styles from "./Users.module.css";
 import axios from "axios";
+import userPic from "../../Assets/Images/585e4bcdcb11b227491c3396.png";
 
 const Users = (props: any): JSX.Element => {
     if (props.users.length === 0)
         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
             props.setUsers(response.data.items);
         });
-    debugger;
-
+    
     return (
         <div>
             {
@@ -16,7 +16,7 @@ const Users = (props: any): JSX.Element => {
                     <div key={u.id}>
                         <span>
                             <div>
-                                <img src={u.ava} className={styles.ava} />
+                                <img src={u.photos.small !== null ? u.photos.small : userPic} className={styles.ava} />
                             </div>
                             <div>
                                 {u.followed
@@ -25,22 +25,12 @@ const Users = (props: any): JSX.Element => {
                             </div>
                         </span>
                         <span>
-                            <span>
                                 <div>
                                     {u.name}
                                 </div>
                                 <div>
                                     {u.status}
                                 </div>
-                            </span>
-                            <span>
-                                <div>
-                                    {u.location.city}
-                                </div>
-                                <div>
-                                    {u.location.country}
-                                </div>
-                            </span>
                         </span>
                     </div>
                 )
