@@ -1,14 +1,7 @@
-import { connect } from "react-redux";
+import { connect, MapDispatchToProps, MapStateToProps } from "react-redux";
 import { FollowAC, SetUsersAC, UnFollowAC } from "../../Redux/users-reducer";
+import { UserType } from "../../types";
 import Users from "./Users";
-
-export type UserType = {
-    id: number,
-    name: string,
-    status: string
-    photos: { small: string, large: string }
-    followed: boolean
-}
 
 type mapStateToPropsType = {
     users: Array<UserType>

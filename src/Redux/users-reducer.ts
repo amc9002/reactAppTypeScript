@@ -1,20 +1,10 @@
+import { UserType, UsersStateType } from '.././types'
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS'
 
-type UserType = {
-    id: number,
-    name: string,
-    status: string
-    photos: { small: string, large: string }
-    followed: boolean
-}
-
-export type StateType = {
-    users: Array<UserType>,
-}
-
-let initialState: StateType = {
+let initialState: UsersStateType = {
     users: [
         //fake users
         //{
@@ -75,7 +65,7 @@ let initialState: StateType = {
     ],
 }
 
-const usersReducer = (state: StateType = initialState, action: any): StateType => {
+const usersReducer = (state: UsersStateType = initialState, action: any): UsersStateType => {
     switch (action.type) {
         case FOLLOW: {
             return FollowSwitch(state, action.userId, true);
@@ -92,7 +82,7 @@ const usersReducer = (state: StateType = initialState, action: any): StateType =
     }
 }
 
-const FollowSwitch = (state: StateType, userId: number, isFollowed: boolean): StateType => {
+const FollowSwitch = (state: UsersStateType, userId: number, isFollowed: boolean): UsersStateType => {
     return {
         ...state,
         users: state.users.map(u => {
