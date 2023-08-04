@@ -1,4 +1,4 @@
-import { connect, MapDispatchToProps, MapStateToProps } from "react-redux";
+import { connect, ConnectedProps, MapDispatchToProps, MapStateToProps } from "react-redux";
 import { FollowAC, SetUsersAC, UnFollowAC } from "../../Redux/users-reducer";
 import { UserType } from "../../types";
 import Users from "./Users";
@@ -27,4 +27,7 @@ const mapDispatchToProps = (dispatch: Function): MapDispatchPropsType => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+export type PropsFromRedux = ConnectedProps<typeof connector>;
+
+export default connector(Users);
