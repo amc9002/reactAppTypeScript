@@ -1,4 +1,5 @@
-import { connect, ConnectedProps, MapDispatchToProps, MapStateToProps } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
+import { RootStateType } from "../../Redux/redux-store";
 import { FollowAC, SetUsersAC, UnFollowAC } from "../../Redux/users-reducer";
 import { UserType } from "../../types";
 import Users from "./Users";
@@ -13,7 +14,7 @@ type MapDispatchPropsType = {
     setUsers: Function
     }
 
-const mapStateToProps = (state: any): mapStateToPropsType => {
+const mapStateToProps = (state: RootStateType): mapStateToPropsType => {
     return {
         users: state.usersPage.users
     }

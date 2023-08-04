@@ -1,22 +1,7 @@
+import { ProfileStateType } from "../types";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
-
-type PostType = {
-    id: number,
-    msg: string,
-    likes: number
-}
-
-type PictureLinksType = {
-    profilePicLink: string | null,
-    avaLink: string | null
-}
-
-export type ProfileStateType = {
-    currentPost: string,
-    posts: Array<PostType>,
-    pictureLinks: PictureLinksType
-}
 
 let initialState: ProfileStateType = {
     currentPost: "New post here",

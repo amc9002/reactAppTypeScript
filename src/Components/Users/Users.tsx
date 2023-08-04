@@ -3,7 +3,7 @@ import axios from "axios";
 import userPic from "../../Assets/Images/585e4bcdcb11b227491c3396.png";
 import React from "react";
 import { type PropsFromRedux } from './UsersContainer';
-import { UserType } from "../.././types";
+import { UserType } from "../../types";
 
 class Users extends React.Component<PropsFromRedux> {
     constructor(props: PropsFromRedux) {

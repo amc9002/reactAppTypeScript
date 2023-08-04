@@ -17,4 +17,13 @@
   <ItemGroup>
     <Folder Include="src\Assets\Images\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\Redux\Store.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\Redux\Store.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\Redux\Store.ts" />
+  </ItemGroup>
 </Project>

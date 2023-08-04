@@ -1,12 +1,20 @@
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootStateType } from '../../Redux/redux-store';
+import { MenuButtonType } from '../../types';
 import Navbar from './Navbar';
 
-const mapStateToProps: any = (state: any) => {
+type mapStateToPropsType = {
+    sidebar: Array<MenuButtonType>
+}
+
+const mapStateToProps = (state: RootStateType): mapStateToPropsType => {
     return {
         sidebar: state.sidebar
     }
 }
 
-const NavbarContainer = connect(mapStateToProps, )(Navbar);
+const connector = connect(mapStateToProps, );
+const NavbarContainer = connect(mapStateToProps,)(Navbar);
+export type PropsFromRedux = ConnectedProps<typeof connector>;
 
 export default NavbarContainer;

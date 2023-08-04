@@ -1,12 +1,18 @@
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootStateType } from '../../Redux/redux-store';
 import Header from './Header';
 
-const mapStateToProps = (state: any): any  => {
+type MapStateToPropsType = {
+    header: string
+    }
+
+const mapStateToProps = (state: RootStateType): MapStateToPropsType  => {
     return {
         header: state.header
     }
 }
 
-const HeaderContainer = connect(mapStateToProps, )(Header);
+const connector = connect(mapStateToProps,);
+export type PropsFromRedux = ConnectedProps<typeof connector>;
 
-export default HeaderContainer;
+export default connector(Header);

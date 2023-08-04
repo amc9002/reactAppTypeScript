@@ -1,8 +1,4 @@
-type MenuButtonType = {
-    id: number,
-    link: string,
-    navLink: string
-}
+import { MenuButtonType } from "../types";
 
 let initialState: Array<MenuButtonType> = [
     { id: 0, link: "Profile", navLink: "/profile" },
