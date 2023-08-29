@@ -15,6 +15,9 @@ export type UserType = {
 
 export type UsersStateType = {
     users: Array<UserType>,
+    pageSize: number,
+    totalCount: number,
+    currentPage: number,
 }
 
 export type PostType = {
