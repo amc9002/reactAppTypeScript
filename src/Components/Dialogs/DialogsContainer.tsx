@@ -1,39 +1,31 @@
 import Dialogs from './Dialogs';
 import { addMessageActionCreator, updateMessageTextActionCreator } from '../../Redux/message-reducer';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootStateType } from '../../Redux/redux-store';
+import { DialogsStateType } from '../../types';
 
-type DialogType = {
-    id: number
-    name: string
-    ava: string | null
-}
-
-type MessageType = {
-    id: number
-    msg: string
-}
-
-type DialogsStateType = {
-    dialogs: Array<DialogType>
-    currentMessage: string
-    messages: Array<MessageType>
-}
-
-type MapStateToPropsType = { dialogsPage: DialogsStateType }
-
-const mapStateToProps: any = (state: any) => {
+const mapStateToProps = (state: RootStateType): DialogsStateType => {
     return {
-        dialogsPage: state.dialogsPage
+        dialogs: state.dialogsPage.dialogs,
+        currentMessage: state.dialogsPage.currentMessage,
+        messages: state.dialogsPage.messages
     }
 }
 
-const mapDispatchToProps: any = (dispatch: Function): any => {
+type mapDispatchToPropsType = {
+    changeMessage: Function
+    addNewMessage: Function
+    }
+
+const mapDispatchToProps = (dispatch: Function): mapDispatchToPropsType => {
     return {
         changeMessage: (text: string) => { dispatch(updateMessageTextActionCreator(text)) },
         addNewMessage: () => { dispatch(addMessageActionCreator()) }
     }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+export type PropsFromRedux = ConnectedProps<typeof connector>;
+const DialogsContainer = connector(Dialogs);
 
 export default DialogsContainer;

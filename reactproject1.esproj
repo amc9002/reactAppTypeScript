@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\Assets\Images\" />
+    <Folder Include="src\Components\Preloader\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="src\Redux\Store.ts" />

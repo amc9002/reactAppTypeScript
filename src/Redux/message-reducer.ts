@@ -1,24 +1,9 @@
+import { DialogsStateType } from "../types";
+
 const ADD_USER = 'ADD-USER';
 const UPDATE_USERS = 'UPDATE-USERS';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
-
-type DialogType = {
-    id: number
-    name: string
-    ava: string | null
-}
-
-type MessageType = {
-    id: number
-    msg: string
-}
-
-type DialogsStateType = {
-    dialogs: Array<DialogType>
-    currentMessage: string
-    messages: Array<MessageType>
-}
 
 let initialState: DialogsStateType = {
     dialogs: [

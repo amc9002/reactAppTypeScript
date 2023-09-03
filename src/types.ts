@@ -18,6 +18,7 @@ export type UsersStateType = {
     pageSize: number,
     totalCount: number,
     currentPage: number,
+    isFetching: boolean,
 }
 
 export type PostType = {
@@ -36,3 +37,42 @@ export type ProfileStateType = {
     posts: Array<PostType>,
     pictureLinks: PictureLinksType
 }
+
+export type DialogType = {
+    id: number
+    name: string
+    ava: string | null
+}
+
+export type MessageType = {
+    id: number
+    msg: string
+} 
+
+export type DialogsStateType = {
+    dialogs: Array<DialogType>
+    currentMessage: string
+    messages: Array<MessageType>
+}
+
+export type DialogsPropsType = {
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
+    currentMessage: string
+    addNewMessage: Function
+    changeMessage: Function
+}
+
+export type UsersPropsType = {
+    totalCount: number
+    pageSize: number
+    currentPage: number
+    onPageChanged: Function
+    users: Array<UserType>
+    followUser: Function
+    unFollowUser: Function
+}
+
+export type PreloaderPropsType = {
+    size: number
+    }
