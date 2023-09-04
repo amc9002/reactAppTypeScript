@@ -25,13 +25,9 @@ let initialState: DialogsStateType = {
 
 const messageReducer = (state: DialogsStateType = initialState, action: any): DialogsStateType => {
     switch (action.type) {
-        case UPDATE_USERS:
-            // TODO: case 'UPDATE-USERS'
-            return { ...state };
-
-        case ADD_USER: // action.newUserName required
+        case UPDATE_USERS: return { ...state };
+        case ADD_USER: 
             if (!action.newUserName.match(/^[\wà-ÿÀ-ß]+/gi)) return state;
-
             return {
                 ...state, dialogs: [...state.dialogs,
                 {
@@ -40,17 +36,9 @@ const messageReducer = (state: DialogsStateType = initialState, action: any): Di
                     ava: "https://spec.iile.ru/wp-content/uploads/2022/01/noname.jpg"
                 }]
             };
-
-
-        case UPDATE_MESSAGE_TEXT: //action.newMessageText required
-            return {
-                ...state,
-                currentMessage: action.newMessageText
-            }
-
+        case UPDATE_MESSAGE_TEXT: return { ...state, currentMessage: action.newMessageText }
         case ADD_MESSAGE:
             if (!state.currentMessage.match(/^[\wà-ÿÀ-ß]+/gi)) return state;
-
             return {
                 ...state,
                 messages: [...state.messages,
@@ -60,12 +48,9 @@ const messageReducer = (state: DialogsStateType = initialState, action: any): Di
                 }],
                 currentMessage: ''
             }
-
-        default:
-            return state;
+        default: return state;
     }
 }
-
 
 export const addMessage = (): { type: typeof ADD_MESSAGE } => ({ type: ADD_MESSAGE })
 

@@ -21,12 +21,7 @@ let initialState: ProfileStateType = {
 
 const profileReducer = (state: ProfileStateType = initialState, action: any): ProfileStateType => {
     switch (action.type) {
-        case UPDATE_POST_TEXT: //action.newText required 
-            return {
-                ...state,
-                currentPost: action.newText
-            }
-
+        case UPDATE_POST_TEXT: return { ...state, currentPost: action.newText }
         case ADD_POST:
             if (!state.currentPost.match(/^[\wà-ÿÀ-ß]+/gi)) return state;
             return {
@@ -39,15 +34,13 @@ const profileReducer = (state: ProfileStateType = initialState, action: any): Pr
                 }],
                 currentPost: ''
             }
-
-        default:
-            return state;
+        default: return state;
     }
 }
 
-export const addPost = (): { type: typeof ADD_POST } => ({ type: ADD_POST })
-
-export const updateNewPostText = (text: string): { type: typeof UPDATE_POST_TEXT, newText: string } => ({ type: UPDATE_POST_TEXT, newText: text })
+export const addPost = (): { type: typeof ADD_POST } => ({ type: ADD_POST });
+;
+export const updateNewPostText = (text: string): { type: typeof UPDATE_POST_TEXT, newText: string } => ({ type: UPDATE_POST_TEXT, newText: text });
 
 
 export default profileReducer;
