@@ -39,17 +39,12 @@ const FollowSwitch = (state: UsersStateType, userId: number, isFollowed: boolean
 
 
 export const follow = (userId: number): { userId: number, type: typeof FOLLOW } => ({ type: FOLLOW, userId });
-
 export const unfollow = (userId: number): { userId: number, type: typeof UNFOLLOW } => ({ type: UNFOLLOW, userId });
-
 export const setUsers = (users: Array<UserType>): { type: typeof SET_USERS, users: Array<UserType> } => ({ type: SET_USERS, users });
-
 export const setCurrentPage = (currentPage: number): { type: typeof SET_CURRENT_PAGE, currentPage: number } =>
     ({ type: SET_CURRENT_PAGE, currentPage });
-
 export const setTotalUsersCount = (totalCount: number): { type: typeof SET_TOTAL_USERS_COUNT, totalCount: number } =>
     ({ type: SET_TOTAL_USERS_COUNT, totalCount });
-
 export const toggleIsFetching = (isFetching: boolean): { type: typeof TOGGLE_IS_FETCHING, isFetching: boolean } =>
     ({ type: TOGGLE_IS_FETCHING, isFetching });
 
