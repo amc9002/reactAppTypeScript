@@ -66,20 +66,11 @@ const messageReducer = (state: DialogsStateType = initialState, action: any): Di
     }
 }
 
-type AddMessageActionType = { type: typeof ADD_MESSAGE }
 
-export const addMessageActionCreator = (): AddMessageActionType => ({ type: ADD_MESSAGE })
+export const addMessage = (): { type: typeof ADD_MESSAGE } => ({ type: ADD_MESSAGE })
 
-type updateMessageTextActionCreatorType = {
-    type: typeof UPDATE_MESSAGE_TEXT
-    newMessageText: string
-}
+export const updateMessage = (text: string): { type: typeof UPDATE_MESSAGE_TEXT, newMessageText: string } =>
+    ({ type: UPDATE_MESSAGE_TEXT, newMessageText: text })
 
-export const updateMessageTextActionCreator = (text: string): updateMessageTextActionCreatorType => {
-    return {
-        type: UPDATE_MESSAGE_TEXT,
-        newMessageText: text
-    }
-}
 
 export default messageReducer;

@@ -17,12 +17,12 @@ const Dialogs = (props: PropsFromRedux): JSX.Element => {
         (m: {id: number, msg: string}) => <Message key={m.id} msg={m.msg} />)
 
     const onNewMessage = (): void => {
-        props.addNewMessage();
+        props.addMessage();
     }
 
     const onMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
         let text: string = e.target.value;
-        props.changeMessage(text);
+        props.updateMessage(text);
     }
 
     return (

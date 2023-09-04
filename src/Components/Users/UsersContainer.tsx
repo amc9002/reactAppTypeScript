@@ -1,8 +1,8 @@
 import React from "react";
 import { connect, ConnectedProps } from "react-redux";
 import { RootStateType } from "../../Redux/redux-store";
-import { FollowAC, SetCurrentPageAC, SetTotalUsersCountAC, SetUsersAC, ToggleIsFetchingAC, UnFollowAC } from "../../Redux/users-reducer";
-import { UsersStateType, UserType } from "../../types";
+import { follow, unfollow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching } from "../../Redux/users-reducer";
+import { UsersStateType } from "../../types";
 import Users from "./Users";
 import axios from "axios";
 import Preloader from "../Preloader/Preloader";
@@ -38,8 +38,8 @@ class UsersAPIContainer extends React.Component<PropsFromRedux> {
                 currentPage={this.props.currentPage}
                 onPageChanged={this.onPageChanged}
                 users={this.props.users}
-                followUser={this.props.followUser}
-                unFollowUser={this.props.unFollowUser}
+                followUser={this.props.follow}
+                unFollowUser={this.props.unfollow}
             />
         </>
     }
@@ -55,27 +55,7 @@ const mapStateToProps = (state: RootStateType): UsersStateType => {
     }
 }
 
-type MapDispatchPropsType = {
-    followUser: Function
-    unFollowUser: Function
-    setUsers: Function
-    setCurrentPage: Function
-    setTotalUsersCount: Function
-    toggleIsFetching: Function
-}
-
-const mapDispatchToProps = (dispatch: Function): MapDispatchPropsType => {
-    return {
-        followUser: (userId: number) => { dispatch(FollowAC(userId)) },
-        unFollowUser: (userId: number) => { dispatch(UnFollowAC(userId)) },
-        setUsers: (users: Array<UserType>) => { dispatch(SetUsersAC(users)) },
-        setCurrentPage: (currentPage: number) => { dispatch(SetCurrentPageAC(currentPage)) },
-        setTotalUsersCount: (totalCount: number) => { dispatch(SetTotalUsersCountAC(totalCount)) },
-        toggleIsFetching: (isFetching: boolean) => { dispatch(ToggleIsFetchingAC(isFetching)) }
-    }
-}
-
-const connector = connect(mapStateToProps, mapDispatchToProps);
+const connector = connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching });
 export type PropsFromRedux = ConnectedProps<typeof connector>;
 
 export default connector(UsersAPIContainer);

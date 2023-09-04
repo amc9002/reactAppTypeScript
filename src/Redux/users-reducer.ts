@@ -58,25 +58,20 @@ const FollowSwitch = (state: UsersStateType, userId: number, isFollowed: boolean
     };
 }
 
-type FollowACType = { userId: number, type: typeof FOLLOW }
-export const FollowAC = (userId: number): FollowACType => ({ userId, type: FOLLOW })
 
-type UnFollowACType = { userId: number, type: typeof UNFOLLOW }
-export const UnFollowAC = (userId: number): UnFollowACType => ({ userId, type: UNFOLLOW })
+export const follow = (userId: number): { userId: number, type: typeof FOLLOW } => ({ type: FOLLOW, userId })
 
-type SetUsersACType = { type: typeof SET_USERS, users: Array<UserType> }
-export const SetUsersAC = (users: Array<UserType>): SetUsersACType => ({ type: SET_USERS, users })
+export const unfollow = (userId: number): { userId: number, type: typeof UNFOLLOW } => ({ type: UNFOLLOW, userId })
 
-type SetCurrentPageACType = { type: typeof SET_CURRENT_PAGE, currentPage: number }
-export const SetCurrentPageAC = (currentPage: number): SetCurrentPageACType =>
+export const setUsers = (users: Array<UserType>): { type: typeof SET_USERS, users: Array<UserType> } => ({ type: SET_USERS, users })
+
+export const setCurrentPage = (currentPage: number): { type: typeof SET_CURRENT_PAGE, currentPage: number } =>
     ({ type: SET_CURRENT_PAGE, currentPage })
 
-type SetTotalUsersCountACType = { type: typeof SET_TOTAL_USERS_COUNT, totalCount: number }
-export const SetTotalUsersCountAC = (totalCount: number): SetTotalUsersCountACType =>
+export const setTotalUsersCount = (totalCount: number): { type: typeof SET_TOTAL_USERS_COUNT, totalCount: number } =>
     ({ type: SET_TOTAL_USERS_COUNT, totalCount })
 
-type ToggleIsFetchingACType = { type: typeof TOGGLE_IS_FETCHING, isFetching: boolean }
-export const ToggleIsFetchingAC = (isFetching: boolean): ToggleIsFetchingACType =>
+export const toggleIsFetching = (isFetching: boolean): { type: typeof TOGGLE_IS_FETCHING, isFetching: boolean } =>
     ({ type: TOGGLE_IS_FETCHING, isFetching })
 
 export default usersReducer;
