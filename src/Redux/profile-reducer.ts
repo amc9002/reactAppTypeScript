@@ -1,7 +1,8 @@
-import { ProfileStateType } from "../types";
+import { ProfileStateType, ProfileType } from "../types";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
+const SET_USER_PROFILE = 'SET-USER-PROFILE';
 
 let initialState: ProfileStateType = {
     currentPost: "New post here",
@@ -15,7 +16,9 @@ let initialState: ProfileStateType = {
     pictureLinks: {
         profilePicLink: "https://www.uu.se/digitalAssets/805/c_805646-l_1-k_image.jpg",
         avaLink: "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg",
-    }
+    },
+
+    profile: null
 }
 
 
@@ -34,13 +37,16 @@ const profileReducer = (state: ProfileStateType = initialState, action: any): Pr
                 }],
                 currentPost: ''
             }
+        case SET_USER_PROFILE: return { ...state, profile: action.profile }
+
         default: return state;
     }
 }
 
 export const addPost = (): { type: typeof ADD_POST } => ({ type: ADD_POST });
-;
+
 export const updateNewPostText = (text: string): { type: typeof UPDATE_POST_TEXT, newText: string } => ({ type: UPDATE_POST_TEXT, newText: text });
 
+export const setUserProfile = (profile: ProfileType): { type: typeof SET_USER_PROFILE, profile: ProfileType } => ({ type: SET_USER_PROFILE, profile});
 
 export default profileReducer;

@@ -2,6 +2,7 @@ import styles from "./Users.module.css";
 import userPic from "../../Assets/Images/585e4bcdcb11b227491c3396.png";
 import { ReactElement } from "react";
 import { UsersPropsType, UserType } from "../../types";
+import { NavLink } from "react-router-dom";
 
 const Users = (props: UsersPropsType): JSX.Element => {
         let pagesCount: number = Math.ceil(props.totalCount / props.pageSize);
@@ -22,7 +23,9 @@ const Users = (props: UsersPropsType): JSX.Element => {
                     <div key={u.id}>
                         <span>
                             <div>
-                                <img src={u.photos.small !== null ? u.photos.small : userPic} className={styles.ava} />
+                                <NavLink to={"/profile/" + u.id}>
+                                    <img src={u.photos.small !== null ? u.photos.small : userPic} className={styles.ava} />
+                                </NavLink>
                             </div>
                             <div>
                                 {u.followed

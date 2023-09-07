@@ -1,12 +1,12 @@
 import styles from './Post.module.css';
 
-interface PropsInterface {
+interface IProps {
     ava: string
     message: string
     count: number
 }
 
-const Post = (props: PropsInterface): JSX.Element => {
+const Post = (props: IProps): JSX.Element => {
     return (
         <div className={styles.item}>
             <img src={props.ava} alt="" />

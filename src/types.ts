@@ -32,10 +32,30 @@ export type PictureLinksType = {
     avaLink: string
 }
 
+export type ProfileType = {
+    aboutMe: string | null
+    contacts: {
+        facebook: string | null
+        website: string | null
+        vk: string | null
+        twitter: string | null
+        instagram: string | null
+        youtube: string | null
+        github: string | null
+        mainLink: string | null
+    }
+    lookingForAJob: boolean
+    lookingForAJobDescription: string | null
+    fullName: string | null
+    userId: number
+    photos: { small: string | null, large: string | null }
+}
+
 export type ProfileStateType = {
     currentPost: string,
     posts: Array<PostType>,
     pictureLinks: PictureLinksType
+    profile: ProfileType | null
 }
 
 export type DialogType = {
@@ -47,7 +67,7 @@ export type DialogType = {
 export type MessageType = {
     id: number
     msg: string
-} 
+}
 
 export type DialogsStateType = {
     dialogs: Array<DialogType>
@@ -75,4 +95,4 @@ export type UsersPropsType = {
 
 export type PreloaderPropsType = {
     size: number
-    }
+}

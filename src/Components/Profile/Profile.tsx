@@ -1,15 +1,13 @@
-import React from 'react';
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
-/*import MyPosts from './MyPosts/MyPosts';*/
-import MyPostsContainer from './MyPosts/MyPostsContainer';
+import MyPostsContainer from "./MyPosts/MyPostsContainer"
+import ProfileInfo from "./ProfileInfo/ProfileInfo"
 
 const Profile = (props: any): JSX.Element => {
     return (
         <div>
-            <ProfileInfo profilePic={props.store.getState().profilePage.pictureLinks.profilePicLink} />
-            <MyPostsContainer store={props.store} />
-        </div >
-    );
+            <ProfileInfo />
+            <MyPostsContainer />
+        </div>
+    )
 }
 
 export default Profile;

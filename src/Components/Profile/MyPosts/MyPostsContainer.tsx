@@ -4,11 +4,7 @@ import { RootStateType } from '../../../Redux/redux-store';
 import { ProfileStateType } from '../../../types';
 import MyPosts from './MyPosts';
 
-type MapStateToPropsType = {
-    profilePage: ProfileStateType
-}
-
-const mapStateToProps = (state: RootStateType): MapStateToPropsType => {
+const mapStateToProps = (state: RootStateType): { profilePage: ProfileStateType } => {
     return {
         profilePage: state.profilePage
     }

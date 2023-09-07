@@ -1,11 +1,11 @@
-import React from 'react';
+import { PropsFromRedux } from '../ProfileContainer';
 import styles from './ProfileInfo.module.css';
 
-const ProfileInfo = (props: any): JSX.Element => {
+const ProfileInfo = (props: PropsFromRedux): JSX.Element => {
     return (
         <div >
             <div>
-                <img src={props.profilePic} alt="" />
+                <img src={props.pictureLinks.profilePicLink} alt="" />
             </div>
             <div className={styles.descrBlock} >
                 ava+descr
