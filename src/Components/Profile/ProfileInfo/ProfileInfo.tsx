@@ -1,18 +1,21 @@
 import styles from './ProfileInfo.module.css';
 import yesPic from '../../../Assets/Images/yesPic.jpeg';
 import noPic from '../../../Assets/Images/noPic.jpeg';
-
-
-let contactExists = (contactPunct: string, contact: string | null): JSX.Element | void => {
-    if (contact == null) return;
-    return (
-        <div><span className={styles.infoPunct}>{contactPunct}:</span> {contact}</div>
-    )
-}
+import { ReactElement } from 'react';
+ 
 
 const ProfileInfo = (props: any): JSX.Element => {
     let lookingForAjobPic: string = "";
     props.profile.lookingForAJob ? lookingForAjobPic = yesPic : lookingForAjobPic = noPic;
+
+    const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+
+    const contacts: Array<JSX.Element> = Object.entries(props.profile.contacts).map(([k, v]): ReactElement =>
+        <div key={k}>
+            <span className={styles.infoPunct}>{capitalize(k)}:</span> <>{v}</>
+        </div>
+    );
+
     return (
         <div>
             <span><img src={props.profile.photos.large ?? ""} alt="" /></span>
@@ -24,8 +27,7 @@ const ProfileInfo = (props: any): JSX.Element => {
                 </div>
                 <div>{props.profile.lookingForAJobDescription}</div>
                 <div className={styles.infoPunct}>Contacts:</div>
-                {contactExists("Facebook: ", props.profile.contacts.facebook)}
-                {/*<div><span className={styles.infoPunct}>Facebook:</span> {props.profile.contacts.facebook}</div>*/}
+                {contacts}
             </div>
             <div className={styles.descrBlock} >
                 ava+descr
