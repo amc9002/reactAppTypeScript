@@ -44,18 +44,18 @@ export type ProfileType = {
         github: string | null
         mainLink: string | null
     }
-    lookingForAJob: boolean
+    lookingForAJob: boolean | null
     lookingForAJobDescription: string | null
     fullName: string | null
-    userId: number
+    userId: number | null
     photos: { small: string | null, large: string | null }
 }
 
 export type ProfileStateType = {
     currentPost: string,
-    posts: Array<PostType>,
+    posts: Array<PostType>
     pictureLinks: PictureLinksType
-    profile: ProfileType | null
+    profile: ProfileType
 }
 
 export type DialogType = {

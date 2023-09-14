@@ -1,10 +1,11 @@
+import { ProfileStateType } from "../../types";
 import MyPostsContainer from "./MyPosts/MyPostsContainer"
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
 
-const Profile = (props: any): JSX.Element => {
+const Profile = (props: ProfileStateType): JSX.Element => {
     return (
         <div>
-            <ProfileInfo />
+            <ProfileInfo profile={ props.profile } />
             <MyPostsContainer />
         </div>
     )

@@ -6,7 +6,7 @@ import { RootStateType } from "../../Redux/redux-store";
 import { ProfileStateType } from "../../types";
 import Profile from "./Profile";
 
-class ProfileContainer extends React.Component {
+class ProfileContainer extends React.Component<PropsFromRedux> {
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
             .then(response => {
@@ -23,14 +23,12 @@ class ProfileContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (state: RootStateType): ProfileStateType => {
-    return {
+const mapStateToProps = (state: RootStateType): ProfileStateType => ({
         currentPost: state.profilePage.currentPost,
         posts: state.profilePage.posts,
         pictureLinks: state.profilePage.pictureLinks,
         profile: state.profilePage.profile,
-    }
-};
+})
 
 
 const connector = connect(mapStateToProps, { setUserProfile });

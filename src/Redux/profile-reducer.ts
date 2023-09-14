@@ -18,7 +18,27 @@ let initialState: ProfileStateType = {
         avaLink: "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg",
     },
 
-    profile: null
+    profile: {
+        aboutMe: null,
+        contacts: {
+            facebook: null,
+            website: null,
+            vk: null,
+            twitter: null,
+            instagram: null,
+            youtube: null,
+            github: null,
+            mainLink: null
+        },
+        lookingForAJob: false,
+        lookingForAJobDescription: null,
+        fullName: null,
+        userId: -1,
+        photos: {
+            small: null,
+            large: null
+        }
+    }
 }
 
 

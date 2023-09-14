@@ -17,4 +17,6 @@ const store = createStore(reducers);
 
 export type RootStateType = ReturnType<typeof store.getState>
 
+(window as any).store = store;
+
 export default store;

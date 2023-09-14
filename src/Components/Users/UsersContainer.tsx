@@ -45,15 +45,13 @@ class UsersAPIContainer extends React.Component<PropsFromRedux> {
     }
 }
 
-const mapStateToProps = (state: RootStateType): UsersStateType => {
-    return {
+const mapStateToProps = (state: RootStateType): UsersStateType => ({
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalCount: state.usersPage.totalCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching
-    }
-}
+})
 
 const connector = connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching });
 export type PropsFromRedux = ConnectedProps<typeof connector>;

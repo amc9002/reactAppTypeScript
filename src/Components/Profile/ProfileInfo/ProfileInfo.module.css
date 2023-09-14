@@ -1,3 +1,25 @@
 .descrBlock {
     padding-left: 20px;
 }
+
+.asking {
+    font-size: 30px;
+}
+
+.info{
+    font-size: 20px;
+}
+
+.fullName {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.looking {
+    width: 50px;
+}
+
+.infoPunct {
+    font-weight: bold;
+    font-size: 20px;
+}
