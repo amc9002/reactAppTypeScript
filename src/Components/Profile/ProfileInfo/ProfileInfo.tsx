@@ -2,9 +2,13 @@ import styles from './ProfileInfo.module.css';
 import yesPic from '../../../Assets/Images/yesPic.jpeg';
 import noPic from '../../../Assets/Images/noPic.jpeg';
 import { ReactElement } from 'react';
+import Preloader from '../../Preloader/Preloader';
  
 
 const ProfileInfo = (props: any): JSX.Element => {
+    if (!props.profile) 
+        <Preloader size={50} />
+    
     let lookingForAjobPic: string = "";
     props.profile.lookingForAJob ? lookingForAjobPic = yesPic : lookingForAjobPic = noPic;
 
