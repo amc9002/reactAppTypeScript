@@ -1,8 +1,18 @@
 import styles from "./Users.module.css";
 import userPic from "../../Assets/Images/585e4bcdcb11b227491c3396.png";
 import { ReactElement } from "react";
-import { UsersPropsType, UserType } from "../../types";
+import { UserType } from "../../types";
 import { NavLink } from "react-router-dom";
+
+type UsersPropsType = {
+    totalCount: number
+    pageSize: number
+    currentPage: number
+    onPageChanged: Function
+    users: Array<UserType>
+    followUser: Function
+    unFollowUser: Function
+}
 
 const Users = (props: UsersPropsType): JSX.Element => {
         let pagesCount: number = Math.ceil(props.totalCount / props.pageSize);

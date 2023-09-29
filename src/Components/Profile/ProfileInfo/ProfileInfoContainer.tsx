@@ -8,7 +8,7 @@ class ProfileInfoContainer extends React.Component<PropsFromRedux>{
     render() {
         return (
             <div>
-                <ProfileInfo profile={{ ...this }} />
+                <ProfileInfo { ...this.props } />
             </div>
         )
     }

@@ -2,8 +2,6 @@ import axios from "axios";
 import React from "react";
 import { connect, ConnectedProps } from "react-redux";
 import { setUserProfile } from "../../Redux/profile-reducer";
-import { RootStateType } from "../../Redux/redux-store";
-import { ProfileStateType } from "../../types";
 import Profile from "./Profile";
 
 class ProfileContainer extends React.Component<PropsFromRedux> {
@@ -17,21 +15,15 @@ class ProfileContainer extends React.Component<PropsFromRedux> {
     render() {
         return (
             <div>
-                <Profile {...this.props} />
+                <Profile />
             </div>
         )
     }
 }
 
-const mapStateToProps = (state: RootStateType): ProfileStateType => ({
-        currentPost: state.profilePage.currentPost,
-        posts: state.profilePage.posts,
-        pictureLinks: state.profilePage.pictureLinks,
-        profile: state.profilePage.profile,
-})
 
+const connector = connect(() => {}, { setUserProfile });
 
-const connector = connect(mapStateToProps, { setUserProfile });
 export type PropsFromRedux = ConnectedProps<typeof connector>;
 
 export default connector(ProfileContainer);

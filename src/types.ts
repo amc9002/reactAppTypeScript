@@ -27,11 +27,6 @@ export type PostType = {
     likes: number
 }
 
-export type PictureLinksType = {
-    profilePicLink: string,
-    avaLink: string
-}
-
 export type ProfileType = {
     aboutMe: string | null
     contacts: {
@@ -54,7 +49,10 @@ export type ProfileType = {
 export type ProfileStateType = {
     currentPost: string,
     posts: Array<PostType>
-    pictureLinks: PictureLinksType
+    pictureLinks: {
+        profilePicLink: string,
+        avaLink: string
+    }
     profile: ProfileType
 }
 
@@ -75,24 +73,11 @@ export type DialogsStateType = {
     messages: Array<MessageType>
 }
 
-export type DialogsPropsType = {
-    dialogs: Array<DialogType>
-    messages: Array<MessageType>
-    currentMessage: string
-    addNewMessage: Function
-    changeMessage: Function
-}
+//export type DialogsPropsType = {
+//    dialogs: Array<DialogType>
+//    messages: Array<MessageType>
+//    currentMessage: string
+//    addNewMessage: Function
+//    changeMessage: Function
+//}
 
-export type UsersPropsType = {
-    totalCount: number
-    pageSize: number
-    currentPage: number
-    onPageChanged: Function
-    users: Array<UserType>
-    followUser: Function
-    unFollowUser: Function
-}
-
-export type PreloaderPropsType = {
-    size: number
-}
