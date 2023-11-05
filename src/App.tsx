@@ -2,7 +2,7 @@ import './App.css';
 import News from './Components/News/News';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import HeaderContainer from './Components/Header/HeaderContainer';
 import NavbarContainer from './Components/Navbar/NavbarContainer';
@@ -17,7 +17,7 @@ const App = (): JSX.Element => {
                 <NavbarContainer />
                 <div className='app-wrapper-content'>
                     <Routes>
-                        <Route path='/profile/*' element={<ProfileContainer />} />
+                        <Route path='/profile/:profile_id' element={<ProfileContainer />} />
                         <Route path='/dialogs/*' element={<DialogsContainer />} />
                         <Route path='/news' element={<News />} />
                         <Route path='/music' element={<Music />} />

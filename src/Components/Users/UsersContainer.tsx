@@ -36,21 +36,21 @@ class UsersAPIContainer extends React.Component<PropsFromRedux> {
                 totalCount={this.props.totalCount}
                 pageSize={this.props.pageSize}
                 currentPage={this.props.currentPage}
-                onPageChanged={this.onPageChanged}
                 users={this.props.users}
                 followUser={this.props.follow}
                 unFollowUser={this.props.unfollow}
+                onPageChanged={this.onPageChanged}
             />
         </>
     }
 }
 
 const mapStateToProps = (state: RootStateType): UsersStateType => ({
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalCount: state.usersPage.totalCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+    totalCount: state.usersPage.totalCount,
+    pageSize: state.usersPage.pageSize,
+    currentPage: state.usersPage.currentPage,
+    users: state.usersPage.users,
+    isFetching: state.usersPage.isFetching
 })
 
 const connector = connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching });

@@ -5,6 +5,14 @@ export type MenuButtonType = {
     navLink: string
 }
 
+export type AuthStateType = {
+    userId: number | null,
+    email: string | null,
+    login: string | null,
+    isAuth: boolean
+    //isFetching: boolean
+    }
+
 export type UserType = {
     id: number,
     name: string,
