@@ -27,6 +27,7 @@ export type UsersStateType = {
     totalCount: number,
     currentPage: number,
     isFetching: boolean,
+    followingInProgress: Array<number>
 }
 
 export type PostType = {
