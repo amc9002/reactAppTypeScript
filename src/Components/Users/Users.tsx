@@ -3,6 +3,7 @@ import userPic from "../../Assets/Images/585e4bcdcb11b227491c3396.png";
 import { ReactElement } from "react";
 import { UserType } from "../../types";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 interface IProps {
     totalCount: number
@@ -39,13 +40,39 @@ const Users = (props: IProps): JSX.Element => {
                         </div>
                         <div>
                             {u.followed
-                                ? <button onClick={() => { props.unFollowUser(u.id) }}>Unfollow</button>
-                                : <button onClick={() => { props.followUser(u.id) }}> Follow </button>}
+                                ? <button onClick={() => {
+                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "0a4e2ca0-40b5-4d91-96de-5f44e63341a7"
+                                            }
+                                    })
+                                        .then(response => {
+                                            if (response.data.resultCode == 0)
+                                                props.unFollowUser(u.id)
+                                        });
+                                    
+                                }}>Unfollow</button>
+
+                                : <button onClick={() => {
+                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "0a4e2ca0-40b5-4d91-96de-5f44e63341a7"
+                                        }
+                                    })
+                                        .then(response => {
+                                            if (response.data.resultCode == 0)
+                                                props.followUser(u.id)
+                                        });
+
+                                }}> Follow </button>}
                         </div>
                     </span>
                     <span>
                         <div>
-                            {u.name}
+                            {u.name}cmd
+
                         </div>
                         <div>
                             {u.status}

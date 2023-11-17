@@ -2,7 +2,7 @@ import './App.css';
 import News from './Components/News/News';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import HeaderContainer from './Components/Header/HeaderContainer';
 import NavbarContainer from './Components/Navbar/NavbarContainer';
