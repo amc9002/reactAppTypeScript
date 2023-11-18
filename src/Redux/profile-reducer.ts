@@ -1,4 +1,6 @@
+import { profileAPI } from "../API/api";
 import { ProfileStateType, ProfileType } from "../types";
+import { RouterDataType } from "../withRouter";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
@@ -64,9 +66,14 @@ const profileReducer = (state: ProfileStateType = initialState, action: any): Pr
 }
 
 export const addPost = (): { type: typeof ADD_POST } => ({ type: ADD_POST });
-
 export const updateNewPostText = (text: string): { type: typeof UPDATE_POST_TEXT, newText: string } => ({ type: UPDATE_POST_TEXT, newText: text });
+export const setUserProfile = (profile: ProfileType): { type: typeof SET_USER_PROFILE, profile: ProfileType } => ({ type: SET_USER_PROFILE, profile });
 
-export const setUserProfile = (profile: ProfileType): { type: typeof SET_USER_PROFILE, profile: ProfileType } => ({ type: SET_USER_PROFILE, profile});
+export const getProfile = (rt: RouterDataType): Function => {
+    return (dispatch: Function) => {
+        profileAPI.getProfile(rt.params["profile_id"])
+            .then(data => { dispatch(setUserProfile(data)); });
+    }
+}
 
 export default profileReducer;

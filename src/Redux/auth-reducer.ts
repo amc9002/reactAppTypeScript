@@ -1,4 +1,5 @@
-import { UserType, AuthStateType } from '../types'
+import { authAPI } from '../API/api';
+import { AuthStateType } from '../types'
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -7,7 +8,6 @@ let initialState: AuthStateType = {
     email: null,
     login: null,
     isAuth: false
-    //isFetching: false
 }
 
 const authsReducer = (state: AuthStateType = initialState, action: any): AuthStateType => {
@@ -18,16 +18,24 @@ const authsReducer = (state: AuthStateType = initialState, action: any): AuthSta
             isAuth: true
         };
 
-        /*case TOGGLE_IS_FETCHING: return { ...state, isFetching: action.isFetching };*/
         default: return state;
     }
 }
 
-
-export const setAuthUserData = (userId: number | null, email: string | null, login: string | null): { type: typeof SET_USER_DATA, data: AuthStateType } =>
+type AuthUserDataType = {type: typeof SET_USER_DATA, data: AuthStateType}
+export const setAuthUserData = (userId: number | null, email: string | null, login: string | null): AuthUserDataType =>
     ({ type: SET_USER_DATA, data: { userId, email, login, isAuth: false } });
 
-//export const toggleIsFetching = (isFetching: boolean): { type: typeof TOGGLE_IS_FETCHING, isFetching: boolean } =>
-//    ({ type: TOGGLE_IS_FETCHING, isFetching });
+export const getMe = (): Function => {
+    return (dispatch: Function) => {
+        authAPI.getMe()
+            .then(data => {
+                if (data.ResultCode === 0) {
+                    let { id, email, login } = data.data;
+                    dispatch(setAuthUserData(id, email, login));
+                }
+            });
+    }
+}
 
 export default authsReducer;
