@@ -89,7 +89,7 @@ export const unfollow = (userId: number): Function => {
         usersAPI.unfollow(userId)
             .then(data => {
                 if (data.resultCode == 0)
-                    dispatch(followSuccess(userId))
+                    dispatch(unfollowSuccess(userId))
                 dispatch(toggleFollowingProgress(false, userId));
             });
     }
