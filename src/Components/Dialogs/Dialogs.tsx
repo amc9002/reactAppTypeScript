@@ -25,6 +25,8 @@ const Dialogs = (props: PropsFromRedux): JSX.Element => {
         props.updateMessage(text);
     }
 
+    alert(props.isAuth);
+
     return (
         <div className={styles.dialogsPage}>
             <div className={styles.dialogs}>

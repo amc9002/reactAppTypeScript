@@ -4,11 +4,14 @@ import { connect, ConnectedProps } from 'react-redux';
 import { RootStateType } from '../../Redux/redux-store';
 import { DialogsStateType } from '../../types';
 
+
+
 const mapStateToProps = (state: RootStateType): DialogsStateType => {
     return {
         dialogs: state.dialogsPage.dialogs,
         currentMessage: state.dialogsPage.currentMessage,
-        messages: state.dialogsPage.messages
+        messages: state.dialogsPage.messages,
+        isAuth: state.auth.isAuth
     }
 }
 

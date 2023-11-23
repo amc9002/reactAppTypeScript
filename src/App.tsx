@@ -8,6 +8,8 @@ import HeaderContainer from './Components/Header/HeaderContainer';
 import NavbarContainer from './Components/Navbar/NavbarContainer';
 import UsersContainer from './Components/Users/UsersContainer';
 import ProfileContainer from './Components/Profile/ProfileContainer';
+import Friends from './Components/Friends/Friends';
+import LoginPage from './Components/Login/login';
 
 const App = (): JSX.Element => {
     return (
@@ -21,8 +23,10 @@ const App = (): JSX.Element => {
                         <Route path='/dialogs/*' element={<DialogsContainer />} />
                         <Route path='/news' element={<News />} />
                         <Route path='/music' element={<Music />} />
+                        <Route path='/friends' element={<Friends />} />
                         <Route path='/settings' element={<Settings />} />
                         <Route path='/users' element={<UsersContainer />} />
+                        <Route path='/login' element={<LoginPage />} />
                     </Routes>
                 </div>
             </div>

@@ -19,7 +19,7 @@ export type UserType = {
     status: string
     photos: { small: string, large: string }
     followed: boolean
-}
+} 
 
 export type UsersStateType = {
     users: Array<UserType>,
@@ -80,13 +80,7 @@ export type DialogsStateType = {
     dialogs: Array<DialogType>
     currentMessage: string
     messages: Array<MessageType>
+    isAuth: boolean
 }
 
-//export type DialogsPropsType = {
-//    dialogs: Array<DialogType>
-//    messages: Array<MessageType>
-//    currentMessage: string
-//    addNewMessage: Function
-//    changeMessage: Function
-//}
 
