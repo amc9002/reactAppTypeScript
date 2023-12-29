@@ -2,7 +2,9 @@ import React from "react";
 import { connect, ConnectedProps } from "react-redux";
 import { getProfile } from "../../Redux/profile-reducer";
 import withRouter, { RouterDataType } from "../../withRouter";
+import { RootStateType } from '../../Redux/redux-store';
 import Profile from "./Profile";
+import { redirect } from "react-router-dom";
 
 class ProfileContainer extends React.Component<PropsFromRedux> {
     componentDidMount() {
@@ -10,7 +12,9 @@ class ProfileContainer extends React.Component<PropsFromRedux> {
         this.props.getProfile(rt);
     }
 
-    render() {
+    render(): any {
+        if (!this.props.isAuth) return redirect("/login");
+
         return (
             <div>
                 <Profile />
@@ -19,7 +23,17 @@ class ProfileContainer extends React.Component<PropsFromRedux> {
     }
 }
 
-const connector = connect(() => { }, { getProfile });
+let AuthRedirectComponent = () => {
+
+}
+
+let mapStateToProps = (state: RootStateType): {isAuth: boolean} => {
+    return {
+        isAuth: state.auth.isAuth
+    }
+}
+
+const connector = connect(mapStateToProps, { getProfile });
 
 export type PropsFromRedux = ConnectedProps<typeof connector>;
 

@@ -4,17 +4,18 @@ import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 import { DialogType } from '../../types';
 import { PropsFromRedux } from './DialogsContainer';
+import { redirect } from 'react-router-dom';
 
-const Dialogs = (props: PropsFromRedux): JSX.Element => {
+const Dialogs = (props: PropsFromRedux): any => {
     const getClassName: Function = (props: { isActive: boolean, isPending: boolean }) =>
         props.isPending ? styles.pending : props.isActive ? styles.active : "";
 
     let dialogsToJsx: Array<JSX.Element> = props.dialogs.map(
         (d: DialogType) =>
-        <Dialog key={d.id} id={d.id} name={d.name} ava={d.ava} class_={getClassName} />);
+            <Dialog key={d.id} id={d.id} name={d.name} ava={d.ava} class_={getClassName} />);
 
     let messagesToJsx: Array<JSX.Element> = props.messages.map(
-        (m: {id: number, msg: string}) => <Message key={m.id} msg={m.msg} />)
+        (m: { id: number, msg: string }) => <Message key={m.id} msg={m.msg} />)
 
     const onNewMessage = (): void => {
         props.addMessage();
@@ -25,7 +26,7 @@ const Dialogs = (props: PropsFromRedux): JSX.Element => {
         props.updateMessage(text);
     }
 
-    alert(props.isAuth);
+    if (!props.isAuth) return redirect("/login");
 
     return (
         <div className={styles.dialogsPage}>
@@ -38,11 +39,11 @@ const Dialogs = (props: PropsFromRedux): JSX.Element => {
                 </div>
                 <div>
                     <textarea onChange={onMessageChange} value={props.currentMessage} />
-                </div>              
+                </div>
                 <div>
                     <button onClick={onNewMessage}>Message</button>
                 </div>
-                
+
             </div>
 
         </div>
