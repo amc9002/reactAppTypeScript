@@ -12,9 +12,7 @@ class ProfileContainer extends React.Component<PropsFromRedux> {
         this.props.getProfile(rt);
     }
 
-    render(): any {
-        if (!this.props.isAuth) return redirect("/login");
-
+    render(): JSX.Element {
         return (
             <div>
                 <Profile />
@@ -23,11 +21,12 @@ class ProfileContainer extends React.Component<PropsFromRedux> {
     }
 }
 
-let AuthRedirectComponent = () => {
-
+let AuthRedirectComponent = (props: PropsFromRedux) => {
+    if (!props.isAuth) return redirect("/login");
+    return <ProfileContainer {...props} />
 }
 
-let mapStateToProps = (state: RootStateType): {isAuth: boolean} => {
+let mapStateToProps = (state: RootStateType): { isAuth: boolean } => {
     return {
         isAuth: state.auth.isAuth
     }
@@ -37,4 +36,4 @@ const connector = connect(mapStateToProps, { getProfile });
 
 export type PropsFromRedux = ConnectedProps<typeof connector>;
 
-export default withRouter(connector(ProfileContainer));
+export default withRouter(connector(AuthRedirectComponent));
