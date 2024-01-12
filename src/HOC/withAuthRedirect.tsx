@@ -1,13 +1,14 @@
-import React from "react";
-import { redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { RootStateType } from "../Redux/redux-store";
 
-export const WithAuthRedirect = (Component: Function) => {
-    class RedirectComponent extends React.Component {
-        render(): any {
-            if (!this.state) return redirect('/login');
-            return <Component {...this.props} />
-        }
+const WithAuthRedirect = (Component: any): any => {
+    const WithAuthRedirectComponentProp = (props: any, state: RootStateType): JSX.Element => {
+        if (!state.auth.isAuth) return <Navigate to='/login' />;
+        return <Component { ...props}/>
     }
+    return WithAuthRedirectComponentProp;
 }
+export default WithAuthRedirect;
+
 
 
