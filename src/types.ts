@@ -80,7 +80,7 @@ export type DialogsStateType = {
     dialogs: Array<DialogType>
     currentMessage: string
     messages: Array<MessageType>
-    isAuth: boolean
+    
 }
 
 

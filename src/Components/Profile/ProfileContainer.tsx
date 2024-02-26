@@ -2,7 +2,6 @@ import React from "react";
 import { connect, ConnectedProps } from "react-redux";
 import { getProfile } from "../../Redux/profile-reducer";
 import withRouter, { RouterDataType } from "../../withRouter";
-import { RootStateType } from '../../Redux/redux-store';
 import Profile from "./Profile";
 import WithAuthRedirect from "../../HOC/withAuthRedirect";
 
@@ -22,11 +21,13 @@ class ProfileContainer extends React.Component<PropsFromRedux> {
     }
 }
 
-let mapStateToProps = (state: RootStateType): { isAuth: boolean } => {
-    return {
-        isAuth: state.auth.isAuth
-    }
-}
+const mapStateToProps = () => { }
+
+//let mapStateToProps = (state: RootStateType): { isAuth: boolean } => {
+//    return {
+//        isAuth: state.auth.isAuth
+//    }
+//}
 
 const connector = connect(mapStateToProps, { getProfile });
 

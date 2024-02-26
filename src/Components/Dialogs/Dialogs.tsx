@@ -4,7 +4,6 @@ import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 import { DialogType } from '../../types';
 import { PropsFromRedux } from './DialogsContainer';
-import { Navigate } from 'react-router-dom';
 
 const Dialogs = (props: PropsFromRedux): JSX.Element => {
     const getClassName: Function = (props: { isActive: boolean, isPending: boolean }) =>
@@ -25,8 +24,6 @@ const Dialogs = (props: PropsFromRedux): JSX.Element => {
         let text: string = e.target.value;
         props.updateMessage(text);
     }
-
-    if (!props.isAuth) return <Navigate to='/login' />;
 
     return (
         <div className={styles.dialogsPage}>

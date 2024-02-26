@@ -24,7 +24,7 @@ const authsReducer = (state: AuthStateType = initialState, action: any): AuthSta
 
 type AuthUserDataType = {type: typeof SET_USER_DATA, data: AuthStateType}
 const setAuthUserData = (userId: number | null, email: string | null, login: string | null): AuthUserDataType =>
-    ({ type: SET_USER_DATA, data: { userId, email, login, isAuth: false } });
+    ({ type: SET_USER_DATA, data: { userId, email, login, isAuth: false} });
 
 export const getAuthUserData = (): Function => {
     return (dispatch: Function) => {

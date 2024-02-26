@@ -3,6 +3,8 @@ import { addMessage, updateMessage } from '../../Redux/message-reducer';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootStateType } from '../../Redux/redux-store';
 import { DialogsStateType } from '../../types';
+import withRouter from "../../withRouter";
+import WithAuthRedirect from "../../HOC/withAuthRedirect";
 
 
 
@@ -11,7 +13,7 @@ const mapStateToProps = (state: RootStateType): DialogsStateType => {
         dialogs: state.dialogsPage.dialogs,
         currentMessage: state.dialogsPage.currentMessage,
         messages: state.dialogsPage.messages,
-        isAuth: state.auth.isAuth
+        
     }
 }
 
@@ -19,4 +21,4 @@ const connector = connect(mapStateToProps, { updateMessage, addMessage });
 export type PropsFromRedux = ConnectedProps<typeof connector>;
 const DialogsContainer = connector(Dialogs);
 
-export default DialogsContainer;
+export default withRouter(connector(WithAuthRedirect(DialogsContainer)));

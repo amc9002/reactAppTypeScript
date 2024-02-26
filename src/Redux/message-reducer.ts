@@ -22,7 +22,6 @@ let initialState: DialogsStateType = {
         { id: 2, msg: "Nothing much", },
     ],
 
-    isAuth: false
 }
 
 const messageReducer = (state: DialogsStateType = initialState, action: any): DialogsStateType => {
